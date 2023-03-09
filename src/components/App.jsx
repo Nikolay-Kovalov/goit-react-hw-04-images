@@ -4,7 +4,7 @@ import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Layout } from "./Layout/Layout";
 import { Loader } from "./Loader/Loader";
 import { Searchbar } from "./Searchbar/Searchbar";
-import { Toaster} from "react-hot-toast";
+import { Toaster, toast } from "react-hot-toast";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -20,11 +20,11 @@ export const App = () => {
   
 
   
-  // const setToastAlert = () => {
-  //      const notify = () => toast('Введите пожалуйста Ваш запрос', {  position: 'top-right', style: {backgroundColor: 'red', color: 'white'}});
-  //     return notify()
-  // }
-
+  const setToastAlert = () => {
+       const notify = () => toast('Введите пожалуйста Ваш запрос', {  position: 'top-right', style: {backgroundColor: 'red', color: 'white'}});
+      return notify()
+  }
+  
   const showSearchQuerry = (querry) => {
     setSearchQuerry(querry);
     setImages([]);
