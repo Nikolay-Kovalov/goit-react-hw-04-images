@@ -6,7 +6,7 @@ export const LoadMoreButton = ({text, onClickButton}) => {
         <LoadButton type="button" onClick={onClickButton}>
             {text}
         </LoadButton>
-    )
+    ) 
 }
 LoadMoreButton.propTypes = {
     text: PropTypes.string,
