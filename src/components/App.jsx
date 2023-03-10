@@ -4,7 +4,7 @@ import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { Layout } from "./Layout/Layout";
 import { Loader } from "./Loader/Loader";
 import { Searchbar } from "./Searchbar/Searchbar";
-import { Toaster, toast } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -20,10 +20,10 @@ export const App = () => {
   
 
   
-  const setToastAlert = () => {
-       const notify = () => toast('Введите пожалуйста Ваш запрос', {  position: 'top-right', style: {backgroundColor: 'red', color: 'white'}});
-      return notify()
-  }
+  // const setToastAlert = () => {
+  //      const notify = () => toast('Введите пожалуйста Ваш запрос', {  position: 'top-right', style: {backgroundColor: 'red', color: 'white'}});
+  //     return notify()
+  // }
   
   const showSearchQuerry = (querry) => {
     setSearchQuerry(querry);
@@ -33,7 +33,7 @@ export const App = () => {
   }
 
   const loadMore = () => {
- fetchImage(searchQuerry, page)
+setPage(prevPage => prevPage + 1)  
   }
 
   const fetchImage = async (querry, page) => {
@@ -43,7 +43,7 @@ export const App = () => {
     try {
       const image = await getImages(querry, page)
         setImages(prevImages => [...prevImages, ...image.data.hits])
-        setPage(prevPage => prevPage + 1)
+ 
         setTotalHits(image.data.totalHits)
     }
     catch (error) {
